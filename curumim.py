@@ -7,7 +7,6 @@ Sisteminha para gerar dados pessois para testes no desenvolvimento de ferramenta
 import pandas as pd
 import random
 import datetime
-import subprocess
 
 def cpf():                                                        
     cpf = [random.randint(0, 9) for x in range(9)]                              
@@ -16,10 +15,7 @@ def cpf():
         cpf.append(11 - val if val > 1 else 0)                                  
     return '%s%s%s.%s%s%s.%s%s%s-%s%s' % tuple(cpf)
 
-def countF(outPut):
-    return int(subprocess.check_output('wc -l {}'.format(outPut), shell=True).split()[0])
-
-quantidade = 10
+quantidade = 100
 outPut = 'Curumim_Nomes_Brasileiros.tsv'
 dataNames = pd.read_csv('NomesBrasileiros_sexo.txt', encoding='utf-8', dtype=str, header=None)
 dataSurNames = pd.read_csv('SobrenomesBrasileiros.txt', encoding='utf-8', dtype=str, header=None)
