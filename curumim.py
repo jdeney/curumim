@@ -15,8 +15,8 @@ def cpf():
         cpf.append(11 - val if val > 1 else 0)                                  
     return '%s%s%s.%s%s%s.%s%s%s-%s%s' % tuple(cpf)
 
-quantidade = 100
-outPut = 'Curumim_Nomes_Brasileiros.tsv'
+quantidadeRegistros = 500
+outPut = 'data/Curumim_Nomes_Brasileiros.tsv'
 dataNames = pd.read_csv('NomesBrasileiros_sexo.txt', encoding='utf-8', dtype=str, header=None)
 dataSurNames = pd.read_csv('SobrenomesBrasileiros.txt', encoding='utf-8', dtype=str, header=None)
 dataNamesFem = pd.read_csv('NomesFemininos.txt', encoding='utf-8', dtype=str, header=None)
@@ -26,7 +26,7 @@ start=1
 
 with open(outPut, 'w') as save:
     save.write('Identificador\tNome\tNome da Mae\tNascimento\tSexo\tCPF\n')
-    for i in range(quantidade):
+    for i in range(quantidadeRegistros):
         x = random.choice(opcoes)
         nome = random.choice(dataNames[0])
         sobrenome = random.choice(dataSurNames[0])
