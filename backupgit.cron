@@ -1,3 +1,0 @@
-git -C /home/deney/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim/ add .
-git -C /home/deney/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim/ commit -m "another commit"
-git -C /home/deney/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim/ push origin master
