@@ -1,0 +1,66 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Sisteminha para gerar dados pessois para testes no desenvolvimento de ferramentas
+@author: Deney Araujo - deneyaraujo@gmail.com
+"""
+import pandas as pd
+import random
+import datetime
+import subprocess
+
+def cpf():                                                        
+    cpf = [random.randint(0, 9) for x in range(9)]                              
+    for _ in range(2):                                                          
+        val = sum([(len(cpf) + 1 - i) * v for i, v in enumerate(cpf)]) % 11      
+        cpf.append(11 - val if val > 1 else 0)                                  
+    return '%s%s%s.%s%s%s.%s%s%s-%s%s' % tuple(cpf)
+
+def countF(outPut):
+    return int(subprocess.check_output('wc -l {}'.format(outPut), shell=True).split()[0])
+
+quantidade = 10
+outPut = 'Curumim_Nomes_Brasileiros.tsv'
+dataNames = pd.read_csv('NomesBrasileiros_sexo.txt', encoding='utf-8', dtype=str, header=None)
+dataSurNames = pd.read_csv('SobrenomesBrasileiros.txt', encoding='utf-8', dtype=str, header=None)
+dataNamesFem = pd.read_csv('NomesFemininos.txt', encoding='utf-8', dtype=str, header=None)
+
+opcoes =[1,2,3,4]
+start=1
+
+with open(outPut, 'w') as save:
+    save.write('Identificador\tNome\tNome da Mae\tNascimento\tSexo\tCPF\n')
+    for i in range(quantidade):
+        x = random.choice(opcoes)
+        nome = random.choice(dataNames[0])
+        sobrenome = random.choice(dataSurNames[0])
+        nascimento = datetime.date(random.randint(1900,2019), random.randint(1,12),random.randint(1,28)).strftime("%d-%m-%Y")
+        if x == 1:
+            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+sobrenome+
+                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+' '+sobrenome+
+                           '\t'+str(nascimento)+
+                           '\t'+nome.rsplit('-',1)[1]+
+                           '\t'+cpf()+'\n')
+        elif x == 2:
+            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+sobrenome+' '+random.choice(dataSurNames[0])+
+                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+
+                           ' '+random.choice(dataSurNames[0])+' '+sobrenome+
+                           '\t'+str(nascimento)+
+                           '\t'+nome.rsplit('-',1)[1]+
+                           '\t'+cpf()+'\n')
+        elif x == 3:
+            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+random.choice(dataSurNames[0])+' '+sobrenome+' '+random.choice(dataSurNames[0])+
+                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+
+                           ' '+random.choice(dataSurNames[0])+' '+sobrenome+
+                           '\t'+str(nascimento)+
+                           '\t'+nome.rsplit('-',1)[1]+
+                           '\t'+cpf()+'\n')
+        else:
+            save.write(f'ID_{str(start).zfill(9)}\t'
+                             +nome.rsplit('-',1)[0]+' '+random.choice(dataNames[0]).rsplit('-',1)[0]+' '+sobrenome+
+                            ' '+random.choice(dataSurNames[0])+' '+random.choice(dataSurNames[0])+
+                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+' '+sobrenome+
+                           '\t'+str(nascimento)+
+                           '\t'+nome.rsplit('-',1)[1]+
+                           '\t'+cpf()+'\n')
+        start+=1
