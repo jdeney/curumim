@@ -1,0 +1,13 @@
+era informações pessoais de brasileiros, como: ID, Nome, Nome da Mãe, nascimento, sexo e CPF válido! Tudo isso para testes em programação e sem o perigo de usar dados encontrados na internet que realmente seja de algum brasileiro! :)
+
+PATH=$PATH:/home/deney/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/deney/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim
+PATH=/home/deney/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/lib
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+34 10 * * ~/anaconda3/bin/python3 ~/Dropbox/doutorado/Bioinfo/projetos_paralelos/curumim/curumimUpdate.py
+
+
+PATH=/home/deney/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+PATH=/home/deney/anaconda3/bin:/home/deney/anaconda3/condabin:/home/deney/bin:/home/deney/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
