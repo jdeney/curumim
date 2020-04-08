@@ -7,4 +7,12 @@ internet e baixamos em algum lugar.
 Devemos ter muito cuidado, essa informações podem violar o direito de informações pessoais.
 
 ## Solução
-Esse simples script gera a quantidade de dados que você precisa para testar seus programas.
+Esse simples script gera a quantidade de dados simulados de nomes e sobrenomes brasileiros que você precisa para testar seus programas.
+
+### Campos disponíveis:
+>Identificador;
+>Nome;
+>Nome da Mãe;
+>Data nascimento;
+>Sexo;
+>CPF válido.
