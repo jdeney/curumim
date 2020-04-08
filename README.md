@@ -10,9 +10,11 @@ Devemos ter muito cuidado, essa informações podem violar o direito de informa�
 Esse simples script gera a quantidade de dados simulados de nomes e sobrenomes brasileiros que você precisa para testar seus programas.
 
 ### Campos disponíveis:
->Identificador;
->Nome;
->Nome da Mãe;
->Data nascimento;
->Sexo;
->CPF válido.
+```
+Identificador;
+Nome;
+Nome da Mãe;
+Data nascimento;
+Sexo;
+CPF válido.
+```
