@@ -19,4 +19,12 @@ Sexo;
 CPF válido.
 ```
 Basta executar em um terminal:
->python curumim.py -n 100 -o output.tsv
+>python curumim.py -n 100 -s ',' -o output.tsv
+
+```
+Legenda:
+-n = número de registros
+-s = Delimitador de coluna [default='\t']
+-o = Arquivo de saída
+```
+
