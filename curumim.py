@@ -13,6 +13,7 @@ import argparse
 def setOptions():
     option = argparse.ArgumentParser(description = '''Curumim [v. 0.1]''')
     option.add_argument('-n','--number',      nargs='?', required=True, help='*Quantidade de registros a ser gerada')
+    option.add_argument('-s','--sep',      nargs='?', default='\t', help='Delimitador de colunas')
     option.add_argument('-o','--output',     nargs='?', required=True, help='*Nome do arquivo de saída')   
     return option.parse_args()
 
@@ -25,6 +26,7 @@ def cpf():
 
 setup = setOptions()
 n = setup.number
+s = setup.sep
 output = setup.output
 
 quantidadeRegistros = int(n)
@@ -37,30 +39,30 @@ opcoes =['simple','double','triple'] #weights
 start=1
 
 with open(outPut, 'w') as save:
-    save.write('Identificador\tNome\tNome da Mae\tNascimento\tSexo\tCPF\n')
+    save.write('Identificador'+s+'Nome'+s+'Nome da Mae'+s+'Nascimento'+s+'Sexo'+s+'CPF\n')
     for i in range(quantidadeRegistros):
         x = random.choices(opcoes, weights=[0.05,0.8,0.15], k=1)
         nome = random.choice(dataNames[0])
         sobrenome = random.choice(dataSurNames[0])
         nascimento = datetime.date(random.randint(1900,2019), random.randint(1,12),random.randint(1,28)).strftime("%d-%m-%Y")
         if 'simple' in x:
-            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+sobrenome+
-                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+' '+sobrenome+
-                           '\t'+str(nascimento)+
-                           '\t'+nome.rsplit('-',1)[1]+
-                           '\t'+cpf()+'\n')
+            save.write(f'ID_{str(start).zfill(9)}'+s+nome.rsplit('-',1)[0]+' '+sobrenome+
+                           s+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+' '+sobrenome+
+                           s+str(nascimento)+
+                           s+nome.rsplit('-',1)[1]+
+                           s+cpf()+'\n')
         elif 'double' in x:
-            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+sobrenome+' '+random.choice(dataSurNames[0])+
-                           '\t'+random.choice(dataNamesFem[0])+
+            save.write(f'ID_{str(start).zfill(9)}'+s+nome.rsplit('-',1)[0]+' '+sobrenome+' '+random.choice(dataSurNames[0])+
+                           s+random.choice(dataNamesFem[0])+
                            ' '+random.choice(dataSurNames[0])+' '+sobrenome+
-                           '\t'+str(nascimento)+
-                           '\t'+nome.rsplit('-',1)[1]+
-                           '\t'+cpf()+'\n')
+                           s+str(nascimento)+
+                           s+nome.rsplit('-',1)[1]+
+                           s+cpf()+'\n')
         else:
-            save.write(f'ID_{str(start).zfill(9)}\t'+nome.rsplit('-',1)[0]+' '+random.choice(dataSurNames[0])+' '+sobrenome+' '+random.choice(dataSurNames[0])+
-                           '\t'+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+
+            save.write(f'ID_{str(start).zfill(9)}'+s+nome.rsplit('-',1)[0]+' '+random.choice(dataSurNames[0])+' '+sobrenome+' '+random.choice(dataSurNames[0])+
+                           s+random.choice(dataNamesFem[0])+' '+random.choice(dataSurNames[0])+
                            ' '+random.choice(dataSurNames[0])+' '+sobrenome+
-                           '\t'+str(nascimento)+
-                           '\t'+nome.rsplit('-',1)[1]+
-                           '\t'+cpf()+'\n')
+                           s+str(nascimento)+
+                           s+nome.rsplit('-',1)[1]+
+                           s+cpf()+'\n')
         start+=1
