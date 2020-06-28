@@ -18,3 +18,5 @@ Data nascimento;
 Sexo;
 CPF válido.
 ```
+Basta executar em um terminal:
+>python curumim.py -n 100 -o output.tsv
