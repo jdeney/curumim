@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="/data/logo_tucuxi2.png"><br>
+</div>
 # curumim
 Gera informações pessoais de brasileiros, como: ID, Nome (linkado sobrenome da mãe), Nome da Mãe, nascimento, sexo e CPF válido.
 
